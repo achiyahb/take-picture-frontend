@@ -1,25 +1,15 @@
 // layout.ts
 'use client';
 
-import Header from '@/components/Header/Header';
-import { ContextWrapper } from '@/context';
-import React, { useEffect } from 'react';
-import i18n from '../utils/i18n/i18n';
+import React from 'react';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    document.documentElement.lang = i18n.language;
-    document.documentElement.dir = i18n.dir();
-  }, []);
+export default function RootLayout({children}: { children: React.ReactNode }) {
 
-  return (
-      <html lang={i18n.language} dir={i18n.dir()}>
-      <body>
-      <ContextWrapper>
-        <Header />
+    return (
+        <html>
+        <body>
         {children}
-      </ContextWrapper>
-      </body>
-      </html>
-  );
+        </body>
+        </html>
+    );
 }
